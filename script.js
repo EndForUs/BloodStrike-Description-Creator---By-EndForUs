@@ -435,5 +435,48 @@ function flashCopyButton() {
     }, 2000);
 }
 
+// ─────────────────────────────────────────────────
+// ADAPTIVE VIEWPORT SCALE
+// On very narrow phones (< 400px logical width) we shrink
+// the viewport scale so the card always fits on screen.
+// This is done by rewriting the <meta name="viewport"> tag,
+// which is the professional / standards-compliant approach.
+// ─────────────────────────────────────────────────
+(function applyAdaptiveScale() {
+    const BASE_WIDTH = 400;   // design reference width (px)
+    const MIN_SCALE  = 0.72;  // never shrink below 72%
+
+    function updateViewportScale() {
+        const screenW = window.screen.width;
+        // Only adjust on "phone" class devices
+        if (screenW >= BASE_WIDTH) {
+            setViewport('width=device-width, initial-scale=1.0');
+            return;
+        }
+        const scale = Math.max(MIN_SCALE, screenW / BASE_WIDTH);
+        const rounded = Math.round(scale * 100) / 100;
+        setViewport(`width=device-width, initial-scale=${rounded}`);
+    }
+
+    function setViewport(content) {
+        let meta = document.querySelector('meta[name="viewport"]');
+        if (!meta) {
+            meta = document.createElement('meta');
+            meta.name = 'viewport';
+            document.head.appendChild(meta);
+        }
+        meta.setAttribute('content', content);
+    }
+
+    // Run once on load
+    updateViewportScale();
+
+    // Re-run if orientation changes (landscape ↔ portrait)
+    window.addEventListener('orientationchange', () => {
+        // Small delay so screen.width updates after rotation
+        setTimeout(updateViewportScale, 150);
+    });
+})();
+
 // Init
 updateOutput();
