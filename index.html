@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BloodStrike Description Creator | EndForUs</title>
+    <link rel="icon" href="resources/icon/Icon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app-container">
+        <header>
+            <h1>BloodStrike Description Creator</h1>
+            <p class="subtitle"><b>Description Creator</b> by 84-character with <b>Hex Colors</b>
+            </p>
+        </header>
+
+        <div class="tabs">
+            <div class="tab active" data-target="color-mode">Color Blocks</div>
+            <div class="tab" data-target="gradient-mode">Gradient</div>
+        </div>
+
+        <div id="color-mode" class="mode-content active">
+            <div id="color-blocks-container" style="display:flex; flex-direction:column; gap:0.75rem;">
+                <!-- Initial block -->
+                <div class="input-group color-block">
+                    <input type="color" value="#ff3366" class="block-color">
+                    <input type="text" placeholder="Type text..." class="block-text">
+                    <button class="btn btn-remove" style="visibility:hidden;">✕</button>
+                </div>
+            </div>
+            <button class="btn" id="btn-add-block">+ Add Color Block</button>
+        </div>
+
+        <div id="gradient-mode" class="mode-content">
+            <div class="gradient-controls">
+                <div class="control-block">
+                    <label>Start Color</label>
+                    <div class="input-group">
+                        <input type="color" id="grad-start" value="#00f2fe">
+                    </div>
+                </div>
+                <div class="control-block">
+                    <label>End Color</label>
+                    <div class="input-group">
+                        <input type="color" id="grad-end" value="#4facfe">
+                    </div>
+                </div>
+            </div>
+
+            <div class="control-block">
+                <label>Number of Steps (Colors)</label>
+                <div class="input-group">
+                    <input type="number" id="grad-steps" value="3" min="2" max="12">
+                </div>
+            </div>
+
+            <div class="control-block">
+                <label>Text</label>
+                <div class="input-group">
+                    <input type="text" id="grad-text" placeholder="Your gradient text...">
+                </div>
+            </div>
+        </div>
+
+        <div class="results-area">
+            <div class="counter-wrapper">
+                <div class="counter-details">
+                    <span class="detail-badge color-badge">Colors: <span id="color-count">0</span></span>
+                    <span class="detail-badge text-badge">Text: <span id="text-count">0</span></span>
+                </div>
+                <div>
+                    <span class="counter" id="char-count">0</span> / 84
+                </div>
+            </div>
+
+            <div class="control-block">
+                <label>Live Preview</label>
+                <div class="visualizer-box" id="visualizer"></div>
+            </div>
+
+            <div class="control-block raw-output-wrapper">
+                <label>Raw Output</label>
+                <textarea id="raw-output" readonly></textarea>
+                <button class="btn-copy" id="btn-copy">Copy</button>
+            </div>
+        </div>
+        <div style="display:flex; justify-content:center; align-items:center; gap:0.5rem;" class="subtitle">
+            <p style="text-align:center;">Made for <b>BloodStrike</b> | By <b>EndForUs</b></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
