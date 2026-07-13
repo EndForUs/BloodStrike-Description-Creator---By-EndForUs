@@ -14,7 +14,7 @@
     <div class="app-container">
         <header>
             <h1>BloodStrike Description Creator</h1>
-            <p class="subtitle"><b>Description Creator</b> by 84-character with <b>Hex Colors</b>
+            <p class="subtitle"><b>Description Creator</b> by 84-character with <b>Hex Colors</b> & <b>Unicode Fonts</b>
             </p>
         </header>
 
@@ -29,7 +29,16 @@
                 <div class="input-group color-block">
                     <input type="color" value="#ff3366" class="block-color">
                     <input type="text" placeholder="Type text..." class="block-text">
-                    <button class="btn btn-remove" style="visibility:hidden;">✕</button>
+                    <select class="block-font font-select">
+                        <option value="none">— Normal —</option>
+                        <option value="monospace">𝙼𝚘𝚗𝚘𝚜𝚙𝚊𝚌𝚎</option>
+                        <option value="fraktur">𝔉𝔯𝔞𝔨𝔱𝔲𝔯</option>
+                        <option value="scriptBold">𝓢𝓬𝓻𝓲𝓹𝓽 𝓑𝓸𝓵𝓭</option>
+                        <option value="wizard">Ⓦⓘⓩⓐⓡⓓ</option>
+                        <option value="fullWidth">Ｆｕｌｌ Ｗｉｄｔｈ</option>
+                        <option value="frakturBold">𝕱𝖗𝖆𝖐𝖙𝖚𝖗 𝕭𝖔𝖑𝖉</option>
+                    </select>
+                    <button class="btn btn-remove locked" disabled>−</button>
                 </div>
             </div>
             <button class="btn" id="btn-add-block">+ Add Color Block</button>
@@ -55,6 +64,40 @@
                 <label>Number of Steps (Colors)</label>
                 <div class="input-group">
                     <input type="number" id="grad-steps" value="3" min="2" max="12">
+                </div>
+            </div>
+
+            <div class="control-block">
+                <label>Typography Style</label>
+                <div class="font-select-grid">
+                    <label class="font-radio-label">
+                        <input type="radio" name="grad-font" value="none" checked>
+                        <span class="font-radio-pill">— Normal —</span>
+                    </label>
+                    <label class="font-radio-label">
+                        <input type="radio" name="grad-font" value="monospace">
+                        <span class="font-radio-pill">𝙼𝚘𝚗𝚘𝚜𝚙𝚊𝚌𝚎</span>
+                    </label>
+                    <label class="font-radio-label">
+                        <input type="radio" name="grad-font" value="fraktur">
+                        <span class="font-radio-pill">𝔉𝔯𝔞𝔨𝔱𝔲𝔯</span>
+                    </label>
+                    <label class="font-radio-label">
+                        <input type="radio" name="grad-font" value="scriptBold">
+                        <span class="font-radio-pill">𝓢𝓬𝓻𝓲𝓹𝓽</span>
+                    </label>
+                    <label class="font-radio-label">
+                        <input type="radio" name="grad-font" value="wizard">
+                        <span class="font-radio-pill">Ⓦⓘⓩⓐⓡⓓ</span>
+                    </label>
+                    <label class="font-radio-label">
+                        <input type="radio" name="grad-font" value="fullWidth">
+                        <span class="font-radio-pill">Ｆｕｌｌ</span>
+                    </label>
+                    <label class="font-radio-label">
+                        <input type="radio" name="grad-font" value="frakturBold">
+                        <span class="font-radio-pill">𝕱𝖗𝖆𝖐𝖙𝖚𝖗</span>
+                    </label>
                 </div>
             </div>
 
