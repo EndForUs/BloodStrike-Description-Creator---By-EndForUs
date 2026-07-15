@@ -38,17 +38,23 @@
                     <input type="text" placeholder="Type text..." class="block-text">
                     <select class="block-font font-select">
                         <option value="none">— Normal —</option>
+                        <option value="bold">𝐁𝐨𝐥𝐝</option>
                         <option value="monospace">𝙼𝚘𝚗𝚘𝚜𝚙𝚊𝚌𝚎</option>
                         <option value="fraktur">𝔉𝔯𝔞𝔨𝔱𝔲𝔯</option>
+                        <option value="doubleStruck">𝔻𝕠𝕦𝕓𝕝𝕖-𝕊𝕥𝕣𝕦𝕔𝕜</option>
+                        <option value="sansSerifBold">𝗦𝗮𝗻𝘀-𝗦𝗲𝗿𝗶𝗳 𝗕𝗼𝗹𝗱</option>
+                        <option value="script">𝒮𝒸𝓇𝒾𝓅𝓉</option>
                         <option value="scriptBold">𝓢𝓬𝓻𝓲𝓹𝓽 𝓑𝓸𝓵𝓭</option>
                         <option value="wizard">Ⓦⓘⓩⓐⓡⓓ</option>
-                        <option value="fullWidth">Ｆｕｌｌ Ｗｉｄｔｈ</option>
+                        <option value="fullWidth">Ｆｗ／Ｗｉｄｔｈ</option>
                         <option value="frakturBold">𝕱𝖗𝖆𝖐𝖙𝖚𝖗 𝕭𝖔𝖑𝖉</option>
                     </select>
                     <button class="btn btn-remove locked" disabled>−</button>
                 </div>
             </div>
             <button class="btn" id="btn-add-block">+ Add Color Block</button>
+            <div id="color-compatibility-container" class="compatibility-container"></div>
+            <div id="unicode-notice-color" class="compatibility-container"></div>
         </div>
 
         <div id="gradient-mode" class="mode-content">
@@ -82,8 +88,24 @@
                         <span class="font-radio-pill">— Normal —</span>
                     </label>
                     <label class="font-radio-label">
+                        <input type="radio" name="grad-font" value="bold">
+                        <span class="font-radio-pill">𝐁𝐨𝐥𝐝</span>
+                    </label>
+                    <label class="font-radio-label">
                         <input type="radio" name="grad-font" value="monospace">
                         <span class="font-radio-pill">𝙼𝚘𝚗𝚘𝚜𝚙𝚊𝚌𝚎</span>
+                    </label>
+                    <label class="font-radio-label">
+                        <input type="radio" name="grad-font" value="doubleStruck">
+                        <span class="font-radio-pill">𝔻𝕠𝕦𝕓𝕝𝕖</span>
+                    </label>
+                    <label class="font-radio-label">
+                        <input type="radio" name="grad-font" value="sansSerifBold">
+                        <span class="font-radio-pill">𝗦𝗮𝗻𝘀𝗕𝗼𝗹𝗱</span>
+                    </label>
+                    <label class="font-radio-label">
+                        <input type="radio" name="grad-font" value="script">
+                        <span class="font-radio-pill">𝒮𝒸𝓇𝒾𝓅𝓉</span>
                     </label>
                     <label class="font-radio-label">
                         <input type="radio" name="grad-font" value="fraktur">
@@ -99,7 +121,7 @@
                     </label>
                     <label class="font-radio-label">
                         <input type="radio" name="grad-font" value="fullWidth">
-                        <span class="font-radio-pill">Ｆｕｌｌ</span>
+                        <span class="font-radio-pill">Ｆｗ／Ｗ</span>
                     </label>
                     <label class="font-radio-label">
                         <input type="radio" name="grad-font" value="frakturBold">
@@ -114,6 +136,8 @@
                     <input type="text" id="grad-text" placeholder="Your gradient text...">
                 </div>
             </div>
+            <div id="gradient-compatibility-container" class="compatibility-container"></div>
+            <div id="unicode-notice-gradient" class="compatibility-container"></div>
         </div>
 
         <div class="results-area">
@@ -121,6 +145,7 @@
                 <div class="counter-details">
                     <span class="detail-badge color-badge">Colors: <span id="color-count">0</span></span>
                     <span class="detail-badge text-badge">Text: <span id="text-count">0</span></span>
+                    <span class="detail-badge unicode-badge" id="unicode-badge" style="display:none;">Unicode: <span id="unicode-multiplier">×1</span></span>
                 </div>
                 <div>
                     <span class="counter" id="char-count">0</span> / 84
@@ -139,7 +164,7 @@
             </div>
         </div>
         <div style="display:flex; justify-content:center; align-items:center; gap:0.5rem;" class="subtitle">
-            <p style="text-align:center;">Made for <b>BloodStrike</b> | By <b>EndForUs</b></p>
+            <p style="text-align:center;">Made for <b class="bloodstrike-text">BloodStrike</b> | By <b class="endforus-text">EndForUs</b></p>
         </div>
     </div>
 
